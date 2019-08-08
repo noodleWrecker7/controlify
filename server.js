@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 17:34
+ * Last modified 08/08/19 17:43
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
@@ -18,7 +18,7 @@ let authtext = null;
     authtext = body;
 })*/
 
-fs.readFile("/appauth.txt", "utf8", (err, data) => {
+fs.readFile("appauth.txt", "utf8", (err, data) => {
     if (err) throw err;
     authtext = data;
     console.log("Authtext = " + authtext);
