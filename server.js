@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 17:13
+ * Last modified 08/08/19 17:18
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
@@ -33,8 +33,8 @@ app.get("/request-token", function (request, response) {
         incomingBody.push(chunk);
     }).on('end', () => {
         incomingBody = Buffer.concat(incomingBody).toString();
+        console.log(incomingBody);
     })
-    console.log(incomingBody);
 
     requester({
         headers: {
@@ -47,6 +47,7 @@ app.get("/request-token", function (request, response) {
             authtext,
         method: 'POST'
     }, function (err, res, body) {
+        console.log("Received access_token")
         //it works!
         //data = this.response;
         response.statusCode = 200;
