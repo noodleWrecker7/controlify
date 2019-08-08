@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/noodleWrecker7/controlify/issues"
   },
-  "homepage": "https://github.com/noodleWrecker7/controlify#readme"
+  "homepage": "https://github.com/noodleWrecker7/controlify#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
 }
