@@ -6,6 +6,5 @@ runtime: nodejs10
 #      Access-Control-Allow-Origin: *
 handlers:
   - url: /request-token
-    static_dir: request-token
     http_headers:
       Access-Control-Allow-Origin: https://controlify.noodlewrecker.xyz/
