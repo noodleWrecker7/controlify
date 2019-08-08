@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 16:11
+ * Last modified 08/08/19 18:27
  ******************************************************************************/
 const LOCAL_AUTH_CODE_KEY = "controlify-sotify-auth-code";
 const LOCAL_ACCESS_TOKEN_KEY = "controlify-spotify-access-token";
@@ -12,14 +12,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let url = new URL(window.location.href);
     let code = url.searchParams.get("code");
     console.log(code);
-    if (code) { // if something in the hash
 
-        if (code) // if it has received the auth code from spotify
-        {
-            localStorage.setItem(LOCAL_AUTH_CODE_KEY, code);
-            //window.location.href = "/controller.html";
-        }
+    if (code) // if it has received the auth code from spotify
+    {
+        localStorage.setItem(LOCAL_AUTH_CODE_KEY, code);
+        //window.location.href = "/controller.html";
     }
+
     if (localStorage.getItem(LOCAL_AUTH_CODE_KEY)) {  // if there is an auth code
         //window.location.href = "/controller.html" // go to main page
         // get access_token and refresh_token
