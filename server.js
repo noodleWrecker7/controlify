@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 19:54
+ * Last modified 08/08/19 20:00
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
@@ -75,7 +75,7 @@ http.createServer((request, response) => {
         //response.setHeader("Access-Control-Allow-Origin", request.headers.origin);
         response.writeHead(200, {
             'Content-Type': 'application/json',
-            "Access-Control-Allow-Origin" : request.headers.origin
+            "Access-Control-Allow-Origin" : "*"
         });
         response.write(body);
         response.end();
