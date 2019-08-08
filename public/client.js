@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 14:52
+ * Last modified 08/08/19 15:16
  ******************************************************************************/
 const LOCAL_AUTH_CODE_KEY = "controlify-sotify-auth-code";
 const LOCAL_ACCESS_TOKEN_KEY = "controlify-spotify-access-token";
@@ -24,14 +24,14 @@ document.addEventListener('DOMContentLoaded', function () {
         //window.location.href = "/controller.html" // go to main page
         // get access_token and refresh_token
         let req = new XMLHttpRequest(); // this goes to an app engine server which then goes to spotify
-        req.open("GET", "controlify-backend.appspot.com");
-        req.setRequestHeader("auth_code", localStorage.getItem(LOCAL_AUTH_CODE_KEY));
+        req.open("GET", "https://controlify-backend.appspot.com");
+        //req.setRequestHeader("auth_code", localStorage.getItem(LOCAL_AUTH_CODE_KEY));
         req.onload = function () {
             let data = this.response;
             console.log(data);
         };
 
-        req.send();
+        req.send(localStorage.getItem(LOCAL_AUTH_CODE_KEY));
 
 
     }
