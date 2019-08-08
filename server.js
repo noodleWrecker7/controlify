@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 19:26
+ * Last modified 08/08/19 19:40
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
@@ -25,8 +25,8 @@ fs.readFile("appauth.txt", "utf8", (err, data) => {
 });
 
 
-//http.createServer((request, response) => {
-app.get("/request-token", function (request, response) {
+http.createServer((request, response) => {
+//app.get("/request-token", function (request, response) {
     console.log("Request Received")
     let data = null;
     console.log("Incoming request, type:" + request.method)
