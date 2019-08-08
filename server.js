@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 15:55
+ * Last modified 08/08/19 16:04
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
@@ -20,7 +20,7 @@ requester("/appauth.txt", function (err, resp, body) {
 
 
 //http.createServer((request, response) => {
-app.get((request, response) => {
+app.get("/request-token", function (request, response)  {
     let data = null;
     console.log("Incoming request, type:" + request.method)
     console.log("headers: " + request.headers)

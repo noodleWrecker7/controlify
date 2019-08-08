@@ -4,3 +4,8 @@ runtime: nodejs10
 #  - url: /
 #    http_headers:
 #      Access-Control-Allow-Origin: *
+handlers:
+  - url: /request-token
+    static_dir: request-token
+    http_headers:
+      Access-Control-Allow-Origin: "*"
