@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 20:35
+ * Last modified 08/08/19 20:44
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
@@ -40,7 +40,9 @@ app.listen(process.env.PORT || 8080, () => {
 function getAccessToken(req, res, next) {
     res.writeHead(200, {
         'Content-Type': 'application/json',
-        "Access-Control-Allow-Origin" : "*"
+        "Access-Control-Allow-Origin" : "*",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Methods": "*"
     });
     console.log("Received body: " + req.body);
 

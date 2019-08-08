@@ -9,9 +9,11 @@ handlers:
     static_dir: request-token/
     http_headers:
       Access-Control-Allow-Origin: "*"
-      Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS
+      Access-Control-Allow-Methods: "*"
+      Access-Control-Allow-Headers: "*"
   - url: /
     static_dir: /
     http_headers:
       Access-Control-Allow-Origin: "*"
-      Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS
+      Access-Control-Allow-Methods: "*"
+      Access-Control-Allow-Headers: "*"
