@@ -1,10 +1,12 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 15:42
+ * Last modified 08/08/19 15:55
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
+var express = require('express');
+var app = express();
 
 let authtext = null;
 
@@ -17,7 +19,8 @@ requester("/appauth.txt", function (err, resp, body) {
 })
 
 
-http.createServer((request, response) => {
+//http.createServer((request, response) => {
+app.get((request, response) => {
     let data = null;
     console.log("Incoming request, type:" + request.method)
     console.log("headers: " + request.headers)
