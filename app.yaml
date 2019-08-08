@@ -9,3 +9,7 @@ handlers:
     static_dir: request-token/
     http_headers:
       Access-Control-Allow-Origin: "*"
+  - url: /
+    static_dir: /
+    http_headers:
+      Access-Control-Allow-Origin: "*"
