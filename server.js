@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 17:43
+ * Last modified 08/08/19 18:23
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
@@ -58,6 +58,7 @@ app.get("/request-token", function (request, response) {
         //data = this.response;
         response.statusCode = 200;
         response.setHeader('Content-Type', 'application/json');
+        response.setHeader("Access-Control-Allow-Origin", "*");
         response.write(body);
         response.end();
         console.log("complete");
