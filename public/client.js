@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 07/08/19 23:44
+ * Last modified 08/08/19 14:52
  ******************************************************************************/
 const LOCAL_AUTH_CODE_KEY = "controlify-sotify-auth-code";
 const LOCAL_ACCESS_TOKEN_KEY = "controlify-spotify-access-token";
@@ -9,19 +9,31 @@ const LOCAL_ACCESS_TOKEN_EXPIRY_KEY = "controlify-spotify-access-expiry-time";
 const LOCAL_REFRESH_TOKEN_KEY = "controlify-spotify-refresh-token";
 
 document.addEventListener('DOMContentLoaded', function () {
+    let url = new URL(window.location.href);
+    let code = url.searchParams.get("code");
+    console.log(code);
+    if (code) { // if something in the hash
+
+        if (code) // if it has received the auth code from spotify
+        {
+            localStorage.setItem(LOCAL_AUTH_CODE_KEY, code);
+            //window.location.href = "/controller.html";
+        }
+    }
     if (localStorage.getItem(LOCAL_AUTH_CODE_KEY)) {  // if there is an auth code
         //window.location.href = "/controller.html" // go to main page
         // get access_token and refresh_token
         let req = new XMLHttpRequest(); // this goes to an app engine server which then goes to spotify
-        req.open("GET", "")
+        req.open("GET", "controlify-backend.appspot.com");
+        req.setRequestHeader("auth_code", localStorage.getItem(LOCAL_AUTH_CODE_KEY));
+        req.onload = function () {
+            let data = this.response;
+            console.log(data);
+        };
 
-    } else if (window.location.hash) { // if something in the hash
-        const hash = parseHash(window.location.hash);
-        if (hash['code']) // if it has received the auth code from spotify
-        {
-            localStorage.setItem(LOCAL_AUTH_CODE_KEY, hash['access_token']);
-            window.location.href = "/controller.html";
-        }
+        req.send();
+
+
     }
     document.getElementById("login").addEventListener('click', function (e) {
         e.preventDefault();
