@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 18:30
+ * Last modified 08/08/19 18:39
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
@@ -31,7 +31,7 @@ app.get("/request-token", function (request, response) {
     let data = null;
     console.log("Incoming request, type:" + request.method)
     console.log("headers: " + request.headers)
-
+    console.log(request.body);
     let incomingBody = [];
     request.on('error', (err) => {
         console.error(err);
@@ -47,13 +47,21 @@ app.get("/request-token", function (request, response) {
         "code=" + incomingBody + "&" +
         authtext;
     console.log("Body to spotify: " + body)
-
+    let clientID = authtext.split("&")[0].split("=")[1]
+    let clientSecret = authtext.split("&")[1].split("=")[1]
     requester({
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
         uri: 'https://accounts.spotify.com/api/token',
-        body: body,
+        //body: body,
+        data: {
+            grant_type: 'authorization_code',
+            redirect_uri: 'https%3A%2F%2Fcontrolify.noodlewrecker.xyz%2F&',
+            code: incomingBody,
+            client_id: clientID,
+            client_secret: clientSecret
+        },
         method: 'POST'
     }, function (err, res, body) {
         console.log("Received access_token")
