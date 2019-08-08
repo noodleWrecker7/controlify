@@ -1,2 +1,6 @@
 service: default
 runtime: nodejs10
+handlers:
+  - url: /
+    http_headers:
+      Access-Control-Allow-Origin: *

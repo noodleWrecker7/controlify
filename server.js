@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 15:17
+ * Last modified 08/08/19 15:42
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
@@ -22,21 +22,22 @@ http.createServer((request, response) => {
     console.log("Incoming request, type:" + request.method)
     console.log("headers: " + request.headers)
 
-    let body = [];
+    let incomingBody = [];
     request.on('error', (err) => {
         console.error(err);
     }).on('data', (chunk) => {
-        body.push(chunk);
+        incomingBody.push(chunk);
     }).on('end', () => {
-        body = Buffer.concat(body).toString();
-    console.log(body);
+        incomingBody = Buffer.concat(incomingBody).toString();
+    })
+    console.log(incomingBody);
 
     let req = new XMLHttpRequest();
     req.open("POST", "https://accounts.spotify.com/api/token");
     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    let body = "grant_type=authorization_code&" +
+    let outBody = "grant_type=authorization_code&" +
         "redirect_uri=https%3A%2F%2Fcontrolify.noodlewrecker.xyz%2F&" +
-        "code=" + body + "&" +
+        "code=" + incomingBody + "&" +
         authtext;
     req.onload = function () {
         data = this.response;
@@ -45,6 +46,6 @@ http.createServer((request, response) => {
         response.write(data);
         response.end();
     };
-    req.send(body).then();
+    req.send(outBody).then();
 
 }).listen(8080);
