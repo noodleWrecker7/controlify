@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 18:39
+ * Last modified 08/08/19 18:44
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
@@ -39,7 +39,7 @@ app.get("/request-token", function (request, response) {
         incomingBody.push(chunk);
     }).on('end', () => {
         incomingBody = Buffer.concat(incomingBody).toString();
-        console.log(incomingBody);
+        console.log("code should be: "+ incomingBody);
     })
 
     let body = "grant_type=authorization_code&" +
