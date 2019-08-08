@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 16:21
+ * Last modified 08/08/19 17:13
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
@@ -36,7 +36,7 @@ app.get("/request-token", function (request, response) {
     })
     console.log(incomingBody);
 
-    request({
+    requester({
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
