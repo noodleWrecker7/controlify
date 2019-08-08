@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 15:08
+ * Last modified 08/08/19 15:09
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
@@ -9,8 +9,8 @@ const requester = require('request');
 let authtext = null;
 
 requester("/appauth.txt", function (err, resp, body) {
-    console.error('error:', error); // Print the error if one occurred
-    console.log('statusCode:', spotifyResponse && spotifyResponse.statusCode); // Print the response status code if a response was received
+    console.error('error:', err); // Print the error if one occurred
+    console.log('statusCode:', resp && resp.statusCode); // Print the response status code if a response was received
     //console.log('body:', body); // Print the HTML for the Google homepage.
     authtext = body;
 
