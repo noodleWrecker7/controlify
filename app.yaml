@@ -8,4 +8,4 @@ handlers:
   - url: /request-token
     static_dir: request-token/
     http_headers:
-      Access-Control-Allow-Origin: https://controlify.noodlewrecker.xyz/
+      Access-Control-Allow-Origin: "*"
