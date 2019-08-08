@@ -5,6 +5,7 @@ runtime: nodejs10
 #    http_headers:
 #      Access-Control-Allow-Origin: *
 handlers:
-    url: /request-token
+  - url: /request-token
+    script: auto
     http_headers:
       Access-Control-Allow-Origin: https://controlify.noodlewrecker.xyz/
