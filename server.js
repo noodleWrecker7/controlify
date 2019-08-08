@@ -1,22 +1,28 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 17:18
+ * Last modified 08/08/19 17:34
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
 var express = require('express');
 var app = express();
+const fs = require('fs');
 
 let authtext = null;
 
-requester("/appauth.txt", function (err, resp, body) {
+/*requester("/appauth.txt", function (err, resp, body) {
     console.error('error:', err); // Print the error if one occurred
     console.log('statusCode:', resp && resp.statusCode); // Print the response status code if a response was received
     //console.log('body:', body); // Print the HTML for the Google homepage.
     authtext = body;
+})*/
 
-})
+fs.readFile("/appauth.txt", "utf8", (err, data) => {
+    if (err) throw err;
+    authtext = data;
+    console.log("Authtext = " + authtext);
+});
 
 
 //http.createServer((request, response) => {
@@ -54,6 +60,7 @@ app.get("/request-token", function (request, response) {
         response.setHeader('Content-Type', 'application/json');
         response.write(body);
         response.end();
+        console.log("complete");
     });
 
     /*let req = new XMLHttpRequest();
