@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 08/08/19 20:44
+ * Last modified 09/08/19 10:11
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
@@ -11,14 +11,14 @@ const fs = require('fs');
 
 let authtext = null;
 
-function routes(router)  {
-    /** save a Black Panther character */
+/*function routes(router)  {
+    /!** save a Black Panther character *!/
     router
         .route('/request-token')
         .post(getAccessToken)
-}
+}*/
 
-routes(express.Router())
+// routes(express.Router()
 
 /*requester("/appauth.txt", function (err, resp, body) {
     console.error('error:', err); // Print the error if one occurred
@@ -33,9 +33,9 @@ fs.readFile("appauth.txt", "utf8", (err, data) => {
     console.log("Authtext = " + authtext);
 });
 
-app.listen(process.env.PORT || 8080, () => {
+/*app.listen(process.env.PORT || 8080, () => {
     console.log("Listening on ${port}")
-})
+})*/
 
 function getAccessToken(req, res, next) {
     res.writeHead(200, {
@@ -92,7 +92,7 @@ function getAccessToken(req, res, next) {
 }
 
 
-/*
+
 http.createServer((request, response) => {
 //app.get("/request-token", function (request, response) {
     console.log("Request Received")
@@ -101,7 +101,7 @@ http.createServer((request, response) => {
     console.log("headers: " + request.headers)
     console.log(request.body);
     let incomingBody = [];
-    request.on('error', (err) => {
+/*    request.on('error', (err) => {
         console.error(err);
     })
     request.on('data', (chunk) => {
@@ -111,7 +111,7 @@ http.createServer((request, response) => {
     request.on('end', () => {
         incomingBody = Buffer.concat(incomingBody).toString();
         console.log("code should be: " + incomingBody);
-    })
+    })*/
 
     let body = "grant_type=authorization_code&" +
         "redirect_uri=https%3A%2F%2Fcontrolify.noodlewrecker.xyz%2F&" +
@@ -143,7 +143,9 @@ http.createServer((request, response) => {
         //response.setHeader("Access-Control-Allow-Origin", request.headers.origin);
         response.writeHead(200, {
             'Content-Type': 'application/json',
-            "Access-Control-Allow-Origin" : "*"
+            "Access-Control-Allow-Origin" : "*",
+            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Allow-Methods": "*"
         });
         response.write(body);
         response.end();
@@ -166,5 +168,5 @@ http.createServer((request, response) => {
     };
     req.send(outBody).then();*/
 
-//}).listen(process.env.PORT || 8080);
+}).listen(process.env.PORT || 8080);
 console.log("Server started")
