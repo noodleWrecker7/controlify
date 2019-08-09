@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 09/08/19 10:11
+ * Last modified 09/08/19 10:19
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
@@ -40,7 +40,7 @@ fs.readFile("appauth.txt", "utf8", (err, data) => {
 function getAccessToken(req, res, next) {
     res.writeHead(200, {
         'Content-Type': 'application/json',
-        "Access-Control-Allow-Origin" : "*",
+        "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "*",
         "Access-Control-Allow-Methods": "*"
     });
@@ -80,7 +80,7 @@ function getAccessToken(req, res, next) {
         //response.setHeader("Access-Control-Allow-Origin", request.headers.origin);
         res.writeHead(200, {
             'Content-Type': 'application/json',
-            "Access-Control-Allow-Origin" : "*"
+            "Access-Control-Allow-Origin": "*"
         });
         res.write(body);
         res.end();
@@ -92,26 +92,36 @@ function getAccessToken(req, res, next) {
 }
 
 
-
 http.createServer((request, response) => {
 //app.get("/request-token", function (request, response) {
     console.log("Request Received")
+    /*response.writeHead(200, {
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Methods": "*"
+    });*/
+    response.setRequestHeader('Content-Type', 'application/json')
+    response.setRequestHeader("Access-Control-Allow-Origin", "*")
+    response.setRequestHeader("Access-Control-Allow-Headers", "*")
+    response.setRequestHeader("Access-Control-Allow-Methods", "*")
+    //response.setHeader()
     let data = null;
     console.log("Incoming request, type:" + request.method)
     console.log("headers: " + request.headers)
     console.log(request.body);
     let incomingBody = [];
-/*    request.on('error', (err) => {
-        console.error(err);
-    })
-    request.on('data', (chunk) => {
-        incomingBody.push(chunk);
-        console.log("data chunk: " + chunk)
-    })
-    request.on('end', () => {
-        incomingBody = Buffer.concat(incomingBody).toString();
-        console.log("code should be: " + incomingBody);
-    })*/
+    /*    request.on('error', (err) => {
+            console.error(err);
+        })
+        request.on('data', (chunk) => {
+            incomingBody.push(chunk);
+            console.log("data chunk: " + chunk)
+        })
+        request.on('end', () => {
+            incomingBody = Buffer.concat(incomingBody).toString();
+            console.log("code should be: " + incomingBody);
+        })*/
 
     let body = "grant_type=authorization_code&" +
         "redirect_uri=https%3A%2F%2Fcontrolify.noodlewrecker.xyz%2F&" +
@@ -141,12 +151,7 @@ http.createServer((request, response) => {
         //response.statusCode = 200;
         //response.setHeader('Content-Type', 'application/json');
         //response.setHeader("Access-Control-Allow-Origin", request.headers.origin);
-        response.writeHead(200, {
-            'Content-Type': 'application/json',
-            "Access-Control-Allow-Origin" : "*",
-            "Access-Control-Allow-Headers": "*",
-            "Access-Control-Allow-Methods": "*"
-        });
+
         response.write(body);
         response.end();
         console.log("complete");
