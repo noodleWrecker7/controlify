@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 09/08/19 10:19
+ * Last modified 09/08/19 10:25
  ******************************************************************************/
 const http = require('http');
 const requester = require('request');
@@ -92,7 +92,7 @@ function getAccessToken(req, res, next) {
 }
 
 
-http.createServer((request, response) => {
+app.get("/request-token", (request, response) => {
 //app.get("/request-token", function (request, response) {
     console.log("Request Received")
     /*response.writeHead(200, {
@@ -101,10 +101,10 @@ http.createServer((request, response) => {
         "Access-Control-Allow-Headers": "*",
         "Access-Control-Allow-Methods": "*"
     });*/
-    response.setRequestHeader('Content-Type', 'application/json')
-    response.setRequestHeader("Access-Control-Allow-Origin", "*")
-    response.setRequestHeader("Access-Control-Allow-Headers", "*")
-    response.setRequestHeader("Access-Control-Allow-Methods", "*")
+    response.setHeader('Content-Type', 'application/json')
+    response.setHeader("Access-Control-Allow-Origin", "*")
+    response.setHeader("Access-Control-Allow-Headers", "*")
+    response.setHeader("Access-Control-Allow-Methods", "*")
     //response.setHeader()
     let data = null;
     console.log("Incoming request, type:" + request.method)
