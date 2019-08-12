@@ -1,1 +1,1 @@
-{ "redirectUri": "https://accounts.spotify.com/authorize?client_id=c8ed70dc046f4fbdbac62a3c3af822a6&response_type=code&scope=user-read-playback-state%20user-modify-playback-state&redirect_uri=https%3A%2F%2Fcontrolify.noodlewrecker.xyz%2F&show_dialog=true" }
+{ "redirectUri": "https://accounts.spotify.com/authorize?client_id=c8ed70dc046f4fbdbac62a3c3af822a6&response_type=token&scope=user-read-playback-state%20user-modify-playback-state&redirect_uri=https%3A%2F%2Fcontrolify.noodlewrecker.xyz%2F&show_dialog=false" }

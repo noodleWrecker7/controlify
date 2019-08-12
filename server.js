@@ -1,9 +1,9 @@
 /*******************************************************************************
  * Copyright (c) 2019.
  * Developed by Adam Hodgkinson
- * Last modified 09/08/19 10:25
+ * Last modified 09/08/2019, 11:14
  ******************************************************************************/
-const http = require('http');
+const http = require('https');
 const requester = require('request');
 var express = require('express');
 var app = express();
@@ -37,7 +37,7 @@ fs.readFile("appauth.txt", "utf8", (err, data) => {
     console.log("Listening on ${port}")
 })*/
 
-function getAccessToken(req, res, next) {
+/*function getAccessToken(req, res, next) {
     res.writeHead(200, {
         'Content-Type': 'application/json',
         "Access-Control-Allow-Origin": "*",
@@ -89,7 +89,7 @@ function getAccessToken(req, res, next) {
 
 
     next();
-}
+}*/
 
 
 app.get("/request-token", (request, response) => {
@@ -173,5 +173,5 @@ app.get("/request-token", (request, response) => {
     };
     req.send(outBody).then();*/
 
-}).listen(process.env.PORT || 8080);
+})//.listen(process.env.PORT || 5000);
 console.log("Server started")

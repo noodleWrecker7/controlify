@@ -1,0 +1,30 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (c) 2019.
+  ~ Developed by Adam Hodgkinson
+  ~ Last modified 12/08/2019, 23:02
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="setup.js" defer></script>
+    <link href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="form-container">
+<form id="setup-form" class="setup-form" action="javascript:login();">
+    <label class="input-label">Client ID:
+        <input type="text" name="id-input" id="id-input">
+    </label>
+    <label class="input-label">Client Secret:
+        <input type="text" name="secret-input" id="secret-input">
+    </label>
+    <input type="submit" id="login" class="btn btn-sm btn-primary spotify-button" value="Log In With Spotify">
+</form>
+</div>
+</body>
+
+</html>
