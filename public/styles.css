@@ -73,7 +73,7 @@ body {
 #control-bar-container {
   /*width: 100%;*/
   position: absolute;
-  top: 100%;
+  top: 110%;
   bottom: 50%;
   width: 100%;
   text-align: center;

@@ -18,7 +18,7 @@ const controls = {
 const player = {
   is_playing: false,
   controlsViewed: false,
-  track: { length: 1, progress: 1, album_image: "" },
+  track: { length: 1, progress: 1, album_image: "", title: "", artist: "" },
   shuffle: false,
   redo: false,
 };
@@ -168,6 +168,19 @@ async function getPlayerInfo() {
     document.getElementById("current-progress").innerText = msToTime(
       player.track.progress
     );
+
+    player.track.name = data.item.name;
+    document.getElementById("track-title").innerText = player.track.name;
+
+    let artists = data.item.artists;
+
+    let string = "";
+    for (let artist in artists) {
+      string += artist.name + ", ";
+    }
+    string = string.substring(0, string.length - 2);
+    player.track.artist = string;
+    document.getElementById("track-artists").innerText = player.track.artist;
 
     player.redo = true;
     if (data.repeat_state == "off") {
