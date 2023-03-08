@@ -260,6 +260,7 @@ function removeControlBar() {
 }
 
 function toggleControls() {
+  getPlayerInfo();
   if (player.controlsViewed) {
     removeControlBar();
   } else {
