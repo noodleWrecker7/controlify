@@ -81,14 +81,14 @@ body {
 
 #track-title {
   color: white;
-  font-size: xx-large;
+  font-size: x-large;
   margin: 0;
   padding: 0.1em;
 }
 
 #track-artists {
   color: white;
-  font-size: x-large;
+  font-size: large;
   margin: 0;
 }
 
