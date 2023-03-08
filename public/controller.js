@@ -242,19 +242,15 @@ function removeControlBar() {
   }
 }
 
-let isDisplayed = false;
-
 function displayControlsPanel() {
   document.getElementById("login").style.display = "none";
   document.getElementById("controller-container").style.display = "block";
 
-  document.addEventListener("onclick", function () {
-    if (isDisplayed) {
+  document.addEventListener("click", function () {
+    if (player.controlsViewed) {
       removeControlBar();
-      isDisplayed = false;
     } else {
       displayControlBar();
-      isDisplayed = true;
     }
   });
 }
