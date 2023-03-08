@@ -169,14 +169,14 @@ async function getPlayerInfo() {
       player.track.progress
     );
 
-    player.track.name = data.item.name;
-    document.getElementById("track-title").innerText = player.track.name;
+    player.track.title = data.item.name;
+    document.getElementById("track-title").innerText = player.track.title;
 
     let artists = data.item.artists;
 
     let string = "";
-    for (let artist in artists) {
-      string += artist.name + ", ";
+    for (let i = 0; i < artists.length; i++) {
+      string += artists[i].name + ", ";
     }
     string = string.substring(0, string.length - 2);
     player.track.artist = string;
