@@ -1,1 +1,1 @@
-{ "redirectUri": "https://accounts.spotify.com/authorize?client_id=c8ed70dc046f4fbdbac62a3c3af822a6&response_type=token&scope=user-read-playback-state%20user-modify-playback-state&redirect_uri=https%3A%2F%2Fcontrolify.adamhodgkinson.dev%2Fcontroller.html&show_dialog=false" }
+{ "redirectUri": "https://accounts.spotify.com/authorize?client_id=7d698d3d94e942ed87b523b5cff996f7&response_type=token&scope=user-read-playback-state%20user-modify-playback-state&redirect_uri=https%3A%2F%2Fcontrolify.adamhodgkinson.dev%2Fcontroller.html&show_dialog=false" }
