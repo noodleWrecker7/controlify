@@ -217,7 +217,7 @@ async function getPlayerInfo() {
 function displayControlBar() {
   player.controlsViewed = true;
   updateProgressBar();
-  document.getElementById("dimming-panel").style.opacity = "1";
+  document.getElementById("dimming-panel").style.opacity = "0";
 
   document.getElementById("progress-bar-container").style.opacity = 1;
   document
@@ -228,7 +228,7 @@ function displayControlBar() {
     .addEventListener("click", updateProgressBar);
 
   for (let item in controls) {
-    document.getElementById(controls[item].id).style.opacity = "0";
+    document.getElementById(controls[item].id).style.opacity = "1";
     document.getElementById(controls[item].id).addEventListener("click", () => {
       controls[item].action();
       toggleControls();
