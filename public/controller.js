@@ -85,7 +85,7 @@ function buttonPressForward() {
 function buttonPressRedo() {}
 
 document.addEventListener("DOMContentLoaded", () => {
-  window.resizeTo(400, 448);
+  window.resizeTo(400, 550);
   window.focus();
   document.getElementById("login").addEventListener("click", function (e) {
     e.preventDefault();
@@ -229,9 +229,10 @@ function displayControlBar() {
 
   for (let item in controls) {
     document.getElementById(controls[item].id).style.opacity = "1";
-    document
-      .getElementById(controls[item].id)
-      .addEventListener("click", controls[item].action);
+    document.getElementById(controls[item].id).addEventListener("click", () => {
+      controls[item].action();
+      toggleControls();
+    });
   }
 }
 
@@ -251,7 +252,18 @@ function removeControlBar() {
     document.getElementById(controls[item].id).style.opacity = "0";
     document
       .getElementById(controls[item].id)
-      .removeEventListener("click", controls[item].action);
+      .removeEventListener("click", () => {
+        controls[item].action();
+        toggleControls();
+      });
+  }
+}
+
+function toggleControls() {
+  if (player.controlsViewed) {
+    removeControlBar();
+  } else {
+    displayControlBar();
   }
 }
 
@@ -260,11 +272,7 @@ function displayControlsPanel() {
   document.getElementById("controller-container").style.display = "block";
 
   document.addEventListener("click", function () {
-    if (player.controlsViewed) {
-      removeControlBar();
-    } else {
-      displayControlBar();
-    }
+    toggleControls();
   });
 }
 
