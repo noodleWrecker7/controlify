@@ -79,6 +79,16 @@ body {
   text-align: center;
 }
 
+#track-title {
+  color: white;
+  font-size: xx-large;
+}
+
+#track-artists {
+  color: white;
+  font-size: x-large;
+}
+
 #control-bar {
   /*width: 100%;*/
   /*position: absolute;*/
