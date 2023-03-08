@@ -6,39 +6,54 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Controlify</title>
     <script src="https://kit.fontawesome.com/b6567f129e.js"></script>
     <script src="controller.js"></script>
-    <link href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-</head>
-<body>
-<a id="login" href="" class="btn btn-sm btn-primary spotify-button">Log In With Spotify</a>
-<div id="controller-container" style="display: none;">
-    <div id="main-section">
-        <img id="album-image" src="https://i.scdn.co/image/7313f6e0bdc23d5d0f0f28895f652ad167cadb68" alt="Album artwork"
-             width="640" height="640">
+    <link
+      href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <a id="login" href="" class="btn btn-sm btn-primary spotify-button"
+      >Log In With Spotify</a
+    >
+    <div id="controller-container" style="display: none">
+      <div id="main-section">
+        <img
+          id="album-image"
+          src="https://i.scdn.co/image/7313f6e0bdc23d5d0f0f28895f652ad167cadb68"
+          alt="Album artwork"
+          width="640"
+          height="640"
+        />
         <div id="dimming-panel"></div>
         <div id="control-bar-container">
-            <div id="control-bar">
-                <i class="fas fa-random control-icon" id="shuffle-icon"></i>
-                <i class="fas fa-backward control-icon" id="backward-icon"></i>
-                <i class="fas fa-pause control-icon" id="play-icon"></i>
-                <i class="fas fa-forward control-icon" id="forward-icon"></i>
-                <i class="fas fa-redo control-icon" id="redo-icon"></i>
-            </div>
-            <div id="progress-bar-container">
-                <label>
-                    <p id="current-progress">0:00</p>
-                    <input type="range" min="1" max="100" class="slider" id="progress">
-                    <p id="track-length">0:00</p>
-                </label>
-
-            </div>
+          <div id="control-bar">
+            <i class="fas fa-random control-icon" id="shuffle-icon"></i>
+            <i class="fas fa-backward control-icon" id="backward-icon"></i>
+            <i class="fas fa-pause control-icon" id="play-icon"></i>
+            <i class="fas fa-forward control-icon" id="forward-icon"></i>
+            <i class="fas fa-redo control-icon" id="redo-icon"></i>
+          </div>
+          <div id="progress-bar-container">
+            <label>
+              <p id="current-progress">0:00</p>
+              <input
+                type="range"
+                min="1"
+                max="100"
+                class="slider"
+                id="progress"
+              />
+              <p id="track-length">0:00</p>
+            </label>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</body>
+  </body>
 </html>
