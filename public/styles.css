@@ -82,11 +82,14 @@ body {
 #track-title {
   color: white;
   font-size: xx-large;
+  margin: 0;
+  padding: 0.5em;
 }
 
 #track-artists {
   color: white;
   font-size: x-large;
+  margin: 0;
 }
 
 #control-bar {
